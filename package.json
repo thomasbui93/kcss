@@ -13,22 +13,22 @@
     "oocss"
   ],
   "scripts": {
-    "compile": "node ./tasks/postcss",
+    "sass": "node-sass --include-path node_modules/bourbon-neat/core --output-style expanded --source-map true --source-map-contents true --precision 6 ./scss/index.scss ./css/k.css",
+    "postcss": "postcss --config config/postcss.config.js --replace \"./css/*.css\" \"!dist/css/*.min.css\"",
+    "compile": "npm run sass && npm run postcss",
     "lint": "stylelint --syntax scss \"scss/**/*.scss\""
   },
   "devDependencies": {
     "autoprefix": "^1.0.1",
     "node-sass": "^4.9.2",
     "postcss": "^7.0.2",
-    "precss": "^3.1.2",
     "stylelint": "^9.4.0",
     "stylelint-config-recommended-scss": "^3.2.0",
     "stylelint-config-standard": "^18.2.0"
   },
   "dependencies": {
+    "bourbon-neat": "^3.0.0",
     "cssnano": "^4.0.5",
-    "group-css-media-queries": "^1.4.1",
-    "postcss-flexbugs-fixes": "^4.1.0",
-    "postcss-utilities": "^0.8.0"
+    "postcss-cli": "^6.0.0"
   }
 }

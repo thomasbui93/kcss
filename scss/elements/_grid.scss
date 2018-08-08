@@ -1,11 +1,22 @@
+@import "neat";
+
 $column-gap: 0.75rem !default;
+$grid-columns: 12 !default;
 
 .grid-container {
+    @include grid-container;
+
     .column {
         display: block;
         flex-basis: 0;
         flex-grow: 1;
         flex-shrink: 1;
         padding: $column-gap;
+    }
+
+    @for $i from 1 through $grid-columns {
+        .column-xs-#{$i} {
+            @include grid-column($i);
+        }
     }
 }
