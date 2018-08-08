@@ -1,2 +1,2 @@
-# kcss
+# Kcss
 Reusable SCSS framework
